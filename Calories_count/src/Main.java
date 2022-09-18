@@ -10,8 +10,23 @@ public class Main {
             int chose = sc.nextInt();
             while (chose != 0) {
                 if (chose == 3) {
-                    target = StepTracker.ChangeTarget(target);
+                    target = ChangeTarget.ChangeTarget(target);
                     System.out.println("New daily target: " + target + " steps");
+                    printMenu();
+                    chose = sc.nextInt();
+                }
+                else if (chose == 2){
+                    System.out.println("А тут мы из базы данных инфу берем и выводим");
+                    printMenu();
+                    chose = sc.nextInt();
+                }
+                else if (chose == 1){
+                    System.out.println("@@@LERT, внесение данных по дню месяца в БД");
+                    printMenu();
+                    chose = sc.nextInt();
+                }
+                else {
+                    System.out.println("@@@LERT, неверная команда");
                     printMenu();
                     chose = sc.nextInt();
                 }
@@ -26,7 +41,7 @@ public class Main {
 
     }
     private static void printMenu(){
-        System.out.println("Chose action using number of it");
+        System.out.println("Choose action using number of it");
         System.out.println("1: Insert today's count of steps");
         System.out.println("2: Get stats for chosen month");
         System.out.println("3: Change target of steps per day");

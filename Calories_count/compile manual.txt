@@ -1,0 +1,3 @@
+find src/*.java > source.txt
+javac -d bin @source.txt
+java -cp bin Main (T_T)
