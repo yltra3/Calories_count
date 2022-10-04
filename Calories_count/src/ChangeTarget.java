@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ChangeTarget {
-    public static int ChangeTarget(int target){
+    public static int ChangeTargetM(int target){
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Insert new target of steps per day:");

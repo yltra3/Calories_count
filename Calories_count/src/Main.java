@@ -1,22 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         int target = 10000;
-	    Scanner sc = new Scanner(System.in);
+        HashMap<Integer, HashMap<Integer, Integer>> months = new HashMap<>();
+        StepTracker.Pull(months);
+        Scanner sc = new Scanner(System.in);
         printMenu();
         if (sc.hasNextInt()){
             int chose = sc.nextInt();
             while (chose != 0) {
                 if (chose == 3) {
-                    target = ChangeTarget.ChangeTarget(target);
+                    target = ChangeTarget.ChangeTargetM(target);
                     System.out.println("New daily target: " + target + " steps");
                     printMenu();
                     chose = sc.nextInt();
                 }
                 else if (chose == 2){
                     System.out.println("А тут мы из базы данных инфу берем и выводим");
+                    StepTracker.Output(months);
                     printMenu();
                     chose = sc.nextInt();
                 }

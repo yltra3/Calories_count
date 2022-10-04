@@ -1,32 +1,23 @@
 import java.time.MonthDay;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class StepTracker {
-    HashMap<Integer, MonthData> monthToData = new HashMap<Integer, MonthData>();
 
-    public StepTracker() {
-        for (int i = 0; i < 12; i++) {
-            monthToData.put(i, new MonthData());
+    public static void Pull(HashMap<Integer, HashMap<Integer, Integer>> months){
+        HashMap<Integer, Integer> temp;
+        for(int i = 0; i<12; i++){
+            months.put(i, new HashMap<>());
+            temp = months.get(i);
+            for(int j = 0; j < 30; j++)
+                temp.put(j, 0);
         }
-    }
-    static class MonthData {
-        HashMap<Integer, Integer> dataToSteps = new HashMap<>();
-        public MonthData() {
-            for (int i = 0; i < 30; i++) {
-                dataToSteps.put(i, 0);
-            }
-        }
-    }
-    class InputUserMonthDataSteps {
-        private StepTracker stepTracker = new StepTracker();
 
-        public void savingIndicatorsInTheTable(Integer month, Integer data, Integer steps) {
-            stepTracker.monthToData
-                    .computeIfAbsent(month, m -> new MonthData()) // MonthData для месяца
-                    .dataToSteps.put(data, steps);
-            System.out.println("В " + (month + 1) + "-м месяце ваша статистика " + stepTracker.monthToData.get(month));
-        }
+
+    }
+    public static void Output(HashMap months) {
+        System.out.println(months);
     }
 }
 
