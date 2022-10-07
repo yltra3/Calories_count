@@ -26,7 +26,16 @@ public class Main {
                     chose = sc.nextInt();
                 }
                 else if (chose == 1){
-                    System.out.println("@@@LERT, внесение данных по дню месяца в БД");
+                    System.out.println("Введите номер месяца");
+                    chose = sc.nextInt();
+                    int month_number = chose;
+                    System.out.println("Введите номер дня");
+                    chose = sc.nextInt();
+                    int day_number = chose;
+                    System.out.println("Введите количество пройденных шагов");
+                    chose = sc.nextInt();
+                    int steps = chose;
+                    setdata.setter(month_number, day_number, steps, months);
                     printMenu();
                     chose = sc.nextInt();
                 }
